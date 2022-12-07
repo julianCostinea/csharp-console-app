@@ -32,10 +32,12 @@ namespace ConsoleAppClassPractice
             // var voteCount = stackPost.GetVoteCount();
             // Console.WriteLine(voteCount);
 
-            var stack = new StackExercise();
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push("3");
+            //STACK EXERCISE
+            
+            // var stack = new StackExercise();
+            // stack.Push(1);
+            // stack.Push(2);
+            // stack.Push("3");
 
             // try
             // {
@@ -45,12 +47,23 @@ namespace ConsoleAppClassPractice
             // {
             //     Console.WriteLine(e);
             // }
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
+            // Console.WriteLine(stack.Pop());
+            // Console.WriteLine(stack.Pop());
+            // Console.WriteLine(stack.Pop());
             // stack.Clear();
 
-            Console.WriteLine(stack._stackList.Count);
+            // Console.WriteLine(stack._stackList.Count);
+
+            //DBCONNECTION EXERCISE
+            var oracleCon = new OracleConnection(new TimeSpan(), "Oracle");
+            var sqlCon = new SQLConnection(new TimeSpan(), "SQL");
+            // oracleCon.OpenConnection();
+            // sqlCon.OpenConnection();
+            // oracleCon.CloseConnection();
+            
+            //DBCOMMAND EXERCISE
+            var dbCommand = new DBCommand(sqlCon, "oracle instruction");
+            dbCommand.Execute();
         }
     }
 }

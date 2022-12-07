@@ -16,11 +16,9 @@ public class StackExercise
         if (obj != null)
         {
             _stackList.Add(obj);
+            return;
         }
-        else
-        {
-            throw new InvalidOperationException("Cant add null to list");
-        }
+        throw new InvalidOperationException("Cant add null to list");
     }
 
     public object Pop()
