@@ -55,15 +55,23 @@ namespace ConsoleAppClassPractice
             // Console.WriteLine(stack._stackList.Count);
 
             //DBCONNECTION EXERCISE
-            var oracleCon = new OracleConnection(new TimeSpan(), "Oracle");
-            var sqlCon = new SQLConnection(new TimeSpan(), "SQL");
+            // var oracleCon = new OracleConnection(new TimeSpan(), "Oracle");
+            // var sqlCon = new SQLConnection(new TimeSpan(), "SQL");
             // oracleCon.OpenConnection();
             // sqlCon.OpenConnection();
             // oracleCon.CloseConnection();
             
             //DBCOMMAND EXERCISE
-            var dbCommand = new DBCommand(sqlCon, "oracle instruction");
-            dbCommand.Execute();
+            // var dbCommand = new DBCommand(sqlCon, "oracle instruction");
+            // dbCommand.Execute();
+            var runningAct = new RunningActivity();
+            var workAct = new WorkActivity();
+            var workFlow = new WorkFlowEngine.WorkFlow();
+            workFlow.AddActivity(runningAct);
+            workFlow.AddActivity(workAct);
+            var workflowEngine = new WorkFlowEngine();
+            workflowEngine.Run(workFlow);
+
         }
     }
 }
