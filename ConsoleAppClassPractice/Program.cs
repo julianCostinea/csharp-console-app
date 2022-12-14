@@ -72,6 +72,23 @@ namespace ConsoleAppClassPractice
             var workflowEngine = new WorkFlowEngine();
             workflowEngine.Run(workFlow);
 
+            //delegates with PhotoFilter
+            var photoProcessor = new Delegates.PhotoProcessor();
+            var filters = new PhotoFilters();
+            //custom delegate
+            // Delegates.PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            
+            //Action delegate
+            Action<Photo> filterHandler = filters.ApplyBrightness;
+            filterHandler += filters.ApplyContrast;
+            filterHandler += RemoveRedEye;
+            photoProcessor.Process("photo.jpg", filterHandler);
+            
+            //adding a new filter without changing PhotoFilters
+            static void RemoveRedEye(Photo photo)
+            {
+                Console.WriteLine("Red eye filter");
+            }
         }
     }
 }
